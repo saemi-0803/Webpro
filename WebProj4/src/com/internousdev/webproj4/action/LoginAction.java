@@ -18,7 +18,8 @@ public class LoginAction extends ActionSupport {
 		System.out.println(password);
 		LoginDAO dao=new LoginDAO();
 		LoginDTOList=dao.select(username, password);
-		if(this.username.equals(LoginDTOList.get(0).getPassword())){
+		if(this.username.equals(LoginDTOList.get(0).getUsername())&&
+				this.password.equals(LoginDTOList.get(0).getPassword())){
 			ret=SUCCESS;
 		}else{
 			ret=ERROR;
